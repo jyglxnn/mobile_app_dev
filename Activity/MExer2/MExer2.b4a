@@ -12,7 +12,7 @@ NumberOfModules=1
 Version=12.8
 @EndOfDesignText@
 #Region  Project Attributes 
-	#ApplicationLabel: MExer1
+	#ApplicationLabel: MExer2
 	#VersionCode: 1
 	#VersionName: 
 	'SupportedOrientations possible values: unspecified, landscape or portrait.
@@ -34,20 +34,26 @@ End Sub
 Sub Globals
 	'These global variables will be redeclared each time the activity is created.
 	Private Header As Label
-	Private SubHeader As Label
-	Private Name As Label
-	Private Nickname As Label
-	Private Birthday As Label
-	Private Email As Label
-	Private Phone As Label
+	Private Subheader As Label
+	Private Lname As Label
+	Private Fname As Label
+	Private Mname As Label
+	Private Strt As Label
+	Private Brgy As Label
+	Private City As Label
+	Private Zip As Label
 	
-	Private inpName As EditText
-	Private inpNn As EditText
-	Private inpBday As EditText
-	Private inpEmail As EditText
-	Private inpPhone As EditText
+	Private inpLname As EditText
+	Private inpFname As EditText
+	Private inpMname As EditText
+	Private inpStrt As EditText
+	Private inpBrgy As EditText
+	Private inpCity As EditText
+	Private inpZip As EditText
 	
-	Private Button As Button
+	
+	Private Submit As Button
+	Private Clear As Button
 End Sub
 
 Sub Activity_Create(FirstTime As Boolean)
@@ -63,18 +69,32 @@ Sub Activity_Pause (UserClosed As Boolean)
 End Sub
 
 
-Private Sub Button_Click
-	Dim Nametxt As String
-	Dim Nntxt As String
-	Dim Bdtxt As String
-	Dim Emtxt As String
-	Dim Phtxt As String
+Private Sub Submit_Click
+	Dim Lnametxt As String
+	Dim Fnametxt As String
+	Dim Mnametxt As String
+	Dim Strttxt As String
+	Dim Brgytxt As String
+	Dim Citytxt As String
+	Dim Ziptxt As String
 	
-	Nametxt = inpName.Text
-	Nntxt = inpNn.Text
-	Bdtxt = inpBday.Text
-	Emtxt = inpEmail.Text
-	Phtxt = inpPhone.Text
+	Lnametxt = inpLname.Text
+	Fnametxt = inpFname.Text
+	Mnametxt = inpMname.Text
+	Strttxt = inpStrt.Text
+	Brgytxt = inpBrgy.Text
+	Citytxt = inpCity.Text
+	Ziptxt = inpZip.Text
 	
-	xui.MsgboxAsync("Name:" & Nametxt & CRLF & "Nickname:" & Nntxt & CRLF & "Birthday:" & Bdtxt & CRLF & "Email:" & Emtxt & CRLF & "Phone:" & Phtxt, "Your Personal Information")
+	xui.MsgboxAsync("Participant Name: "& Lnametxt & ", " & Fnametxt & Mnametxt & CRLF & "Address: " & Strttxt & ", " & Brgytxt & ", " & Citytxt & ", " & Ziptxt, "Registration Info")
+End Sub
+
+Private Sub Clear_Click
+	inpLname.Text = ""
+	inpFname.Text = ""
+	inpMname.Text = ""
+	inpStrt.Text = ""
+	inpBrgy.Text = ""
+	inpCity.Text = ""
+	inpZip.Text = ""
 End Sub
